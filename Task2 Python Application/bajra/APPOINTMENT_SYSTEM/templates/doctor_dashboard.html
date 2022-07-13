@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} Doctor Dashboard {% endblock %}
+
+
+{% block content %}
+{% include 'nav_doc.html' %}
+
+
+<h3 class="text-center mt-2">Appointment Lists of Doc {{user.username}}</h3>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-12">
+            <table class="table bg-white">
+                <thead class="bg-primary">
+                    
+                    <tr class="text-white">
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Patient Address</th>
+                        <th scope="col">Patient Phone</th>
+                        <th scope="col">Apointment Date</th>
+                        <th scope="col">Apointment Time</th>
+                        <th scope="col">Issues</th>
+                        
+
+
+                                                                      
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in doctor_appointment %}
+                    <tr>
+                        <td>{{ appointment.patient_name }}</td>
+                        <td>{{ appointment.patient_address }}</td>
+                        <td>{{ appointment.patient_phone }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }}</td>
+                        <td>{{ appointment.issue }}</td>
+                        
+
+                     
+ 
+                        
+                    </tr>
+                    {% endfor %}             
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

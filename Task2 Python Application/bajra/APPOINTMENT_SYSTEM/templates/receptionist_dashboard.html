@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %} Reception Dashboard {% endblock %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% include 'nav_recep.html' %}
+
+<h3 class="text-center mt-2">Appointment Lists</h3>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-12">
+            <table class="table bg-white">
+                <thead class="bg-primary">
+                    
+                    <tr class="text-white">
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Patient Address</th>
+                        <th scope="col">Patient Phone</th>
+                        <th scope="col">Apointment Date</th>
+                        <th scope="col">Apointment Time</th>
+                        <th scope="col">Issues</th>
+                        <th scope="col">Doctor Name</th>
+                        <th scope="col">Action</th>
+
+
+                                                                      
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment.patient_name }}</td>
+                        <td>{{ appointment.patient_address }}</td>
+                        <td>{{ appointment.patient_phone }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }}</td>
+                        <td>{{ appointment.issue }}</td>
+                        <td>{{ appointment.doctor.first_name }}</td>
+
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="{% url 'appointment_update' appointment.id %}">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'appointment_delete' appointment.id %}">Delete</a>
+                            
+                        </td>
+
+                        
+                    </tr>
+                    {% endfor %}             
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

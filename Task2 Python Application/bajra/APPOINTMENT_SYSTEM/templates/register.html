@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Registration Page {% endblock %}
+
+
+{% block content %}
+    {% include 'nav.html' %}
+
+    <div class="container">
+        <div class="row offset-md-3">
+            <div class="col-md-6 mt-5">
+                <div class="border p-3 text-center">
+                    <h1>Register As</h1>
+                    <a href="{% url 'reception_registration' %}">Receptionist</a><br>
+                    <a href="{% url 'doctor_registration' %}">Doctor</a>
+           
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
